@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HOME</title>
+    <title>ADD MONEY</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
       body {
@@ -40,8 +40,7 @@
       <div>
         <a href="{% url 'home' %}">HOME</a>
         <a href="#">EXPENSES</a>
-        <a class="money_soccer" href="{% url 'addmoney' %}">{{ money_soccer }}</a> <!-- Use the context variable -->
-      </div>
+        <a class="money_soccer" href="{% url 'addmoney' %}">{{ money_soccer }}</a>       </div>
       <h3>DAVID</h3>
     </div>
   </body>
