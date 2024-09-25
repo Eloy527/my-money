@@ -1,47 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ADD MONEY</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
-      body {
-        font-family: "Open Sans", sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      .head {
-        display: flex; /* Встановлюємо flexbox */
-        align-items: center; /* Вирівнюємо по вертикалі */
-        border-bottom: 5px solid black;
-        padding: 10px 15px; /* Додаємо відступи */
-      }
-      .head h2 {
-        margin-right: 400px;
-      }
-      .head a {
-        margin-right: 55px; /* Відступ між посиланнями */
-        text-decoration: none; /* Видаляємо підкреслення з посилань */
-        color: black; /* Колір тексту */
-      }
-      .head .money_soccer {
-        font-size: larger;
-        font-weight: bolder;
-        color: rgb(8, 133, 16);
-        margin-left: 100px;
-        margin-right: 80px;
-      }
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+        body {
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .head {
+            display: flex;
+            align-items: center;
+            border-bottom: 5px solid black;
+            padding: 10px 15px;
+        }
+        .head h2 {
+            margin-right: 400px;
+        }
+        .head a {
+            margin-right: 55px;
+            text-decoration: none;
+            color: black;
+        }
+        .head .money_soccer {
+            font-size: larger;
+            font-weight: bolder;
+            color: rgb(8, 133, 16);
+            margin-left: 100px;
+            margin-right: 80px;
+        }
+        .form-container {
+            margin-top: 20px;
+            padding: 20px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(8, 133, 16);
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(6, 106, 12);
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="head">
-      <h2>MYMONEY</h2>
-      <div>
-        <a href="{% url 'home' %}">HOME</a>
-        <a href="#">EXPENSES</a>
-        <a class="money_soccer" href="{% url 'addmoney' %}">{{ money_soccer }}</a>       </div>
-      <h3>DAVID</h3>
+        <h2>MYMONEY</h2>
+        <div>
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="#">EXPENSES</a>
+            <a class="money_soccer" href="{% url 'addmoney' %}">{{ money_soccer }}</a>
+        </div>
+        <h3>DAVID</h3>
     </div>
-  </body>
+    
+    <div class="form-container">
+        <form method="POST" action="{% url 'addmoney' %}">
+            {% csrf_token %}
+            <label for="amount">Enter Amount:</label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0" required />
+            <button type="submit">Update Money</button>
+        </form>
+    </div>
+</body>
 </html>
